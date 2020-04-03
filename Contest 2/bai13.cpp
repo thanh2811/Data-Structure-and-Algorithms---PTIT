@@ -29,9 +29,7 @@ int kt(){
 }
 int ans = 0;
 void dem(){
-    if(kt()){
-        ans++;
-    }
+    if(kt()) ans++;
 }
 void out(){
     if(kt()){
