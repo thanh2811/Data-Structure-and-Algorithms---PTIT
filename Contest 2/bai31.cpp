@@ -17,14 +17,8 @@ int HasInDictionary(string a){
     return 0;
 }
 int b[10][10];
-// GIZKEU
-int check(){
-    For(i,1,n) For(j,1,m) if(b[i][j]) return 0;
-    return 1;
-}
 string res;
 void Try(int i,int j){
-    if(check()) return;
     if(HasInDictionary(res)) {kt=1;ans.push_back(res);}
     if(j<m&&b[i][j+1]){
         res+=a[i][j+1];
