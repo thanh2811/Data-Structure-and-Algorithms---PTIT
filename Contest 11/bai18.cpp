@@ -7,38 +7,39 @@ typedef long long ll;
 
 struct node{
     int data;
-    node *l;
-    node *r;
+    node *l, *r;
     node(int x){
         data = x;
         l = r = NULL;
     }
 };
 
-void Insert(node* &p,int x){
+void Insert(node *&p,int x){
     if(p==NULL) p = new node(x);
     else{
-        if(x<p->data) Insert(p->l,x);
-        else Insert(p->r,x);
+        if(p->data > x)  Insert(p->l,x);
+        else if(p->data < x) Insert(p->r,x);
     }
 }
 
-void Postorder(node* p){
-    if(p==NULL) return;
-    Postorder(p->l);
-    Postorder(p->r);
-    cout<<p->data<<" ";
+void PreOrder(node *p){
+    if(p){
+        cout<<p->data<<" ";
+        PreOrder(p->l);
+        PreOrder(p->r);
+    }
 }
 
 void Res(){
-    int n;
+    int n,x;
     cin>>n;
-    node* a = NULL;
+    node *a = NULL;
+    map<int,int> m;
     For(i,1,n){
-        int x; cin>>x;
+        cin>>x;
         Insert(a,x);
     }
-    Postorder(a);
+    PreOrder(a);
     cout<<'\n';
 }
 int main(){

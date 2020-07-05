@@ -23,11 +23,9 @@ void Insert(node* &p,int x){
     }
 }
 
-void Postorder(node* p){
-    if(p==NULL) return;
-    Postorder(p->l);
-    Postorder(p->r);
-    cout<<p->data<<" ";
+int Height(node *p){
+    if(p==NULL) return 0;
+    return (max(Height(p->l),Height(p->r))+1);
 }
 
 void Res(){
@@ -38,8 +36,8 @@ void Res(){
         int x; cin>>x;
         Insert(a,x);
     }
-    Postorder(a);
-    cout<<'\n';
+    int ans = Height(a);
+    cout<<ans-1<<'\n';
 }
 int main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);

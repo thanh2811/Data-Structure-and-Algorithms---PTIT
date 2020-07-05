@@ -23,11 +23,19 @@ void Insert(node* &p,int x){
     }
 }
 
-void Postorder(node* p){
+int isLeafNode(node *p){
+    if(p==NULL) return 0;
+    return (p->l==NULL && p->r==NULL);
+}
+
+int ans;
+
+void Count(node *p){
     if(p==NULL) return;
-    Postorder(p->l);
-    Postorder(p->r);
-    cout<<p->data<<" ";
+    if(isLeafNode(p)) return;
+    ans++;
+    Count(p->l);
+    Count(p->r);
 }
 
 void Res(){
@@ -38,8 +46,9 @@ void Res(){
         int x; cin>>x;
         Insert(a,x);
     }
-    Postorder(a);
-    cout<<'\n';
+    ans = 0;
+    Count(a);
+    cout<<ans<<'\n';
 }
 int main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);

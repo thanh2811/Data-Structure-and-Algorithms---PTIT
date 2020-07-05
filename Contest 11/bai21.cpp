@@ -23,11 +23,16 @@ void Insert(node* &p,int x){
     }
 }
 
-void Postorder(node* p){
+int isLeafNode(node *p){
+    if(p==NULL) return 0;
+    return (p->l==NULL && p->r==NULL);
+}
+
+void PrintLeafNode(node *p){
     if(p==NULL) return;
-    Postorder(p->l);
-    Postorder(p->r);
-    cout<<p->data<<" ";
+    if(isLeafNode(p)) cout<<p->data<<" ";
+    PrintLeafNode(p->l);
+    PrintLeafNode(p->r);
 }
 
 void Res(){
@@ -38,7 +43,7 @@ void Res(){
         int x; cin>>x;
         Insert(a,x);
     }
-    Postorder(a);
+    PrintLeafNode(a);
     cout<<'\n';
 }
 int main(){
