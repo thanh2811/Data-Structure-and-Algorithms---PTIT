@@ -1,0 +1,20 @@
+200408 171347.862|CONFIG|main|setFileHandlers|Now logging to C:\Users\DELL\Desktop\pc2Client\pc2Client\bin\logs directory.
+200408 171347.863|INFO|main|info|
+200408 171347.866|INFO|main|info|Version 9.6.0 20190102 (Wednesday, January 2nd 2019 01:20 UTC) Java ver 1.8.0_241 build 5102 Windows 10 10.0 (amd64) 
+200408 171347.867|INFO|main|startLog|Working directory is C:\Users\DELL\Desktop\pc2Client\pc2Client\bin
+200408 171347.879|INFO|main|startLog|Process id is 8940@DESKTOP-36JINS9
+200408 171347.879|INFO|main|start|Starting ConnectionManager...
+200408 171348.120|INFO|main|start|Started ConnectionManager
+200408 171348.126|INFO|main|setClientServerAndPort|INIFile File location: file:/C:/Users/DELL/Desktop/pc2Client/pc2Client/bin/pc2v9.ini
+200408 171348.126|INFO|main|setClientServerAndPort|setClientServerAndPort 203.162.88.119 parsed as 203.162.88.119 port 50002
+200408 171348.126|INFO|main|info|Contacting server at 203.162.88.119:50002
+200408 171348.127|INFO|main|connectToMyServer|Connecting to 203.162.88.119:50002
+200408 171409.133|INFO|main|<init>|IO Exception:203.162.88.119
+200408 171409.134|INFO|main|connectToMyServer|Could not ConnectToMyServer()
+200408 171409.134|INFO|main|start|Exception contacting my server 
+|edu.csus.ecs.pc2.core.transport.TransportException: Connection timed out: connect
+|    at edu.csus.ecs.pc2.core.transport.TransportManager.connectToMyServer (TransportManager.java:197)
+|    at edu.csus.ecs.pc2.core.transport.connection.ConnectionManager.connectToMyServer (ConnectionManager.java:99)
+|    at edu.csus.ecs.pc2.core.InternalController.start (InternalController.java:2853)
+|    at edu.csus.ecs.pc2.Starter.main (Starter.java:49)
+200408 171409.135|INFO|main|info|Unable to contact server at 203.162.88.119:0 Connection timed out: connect

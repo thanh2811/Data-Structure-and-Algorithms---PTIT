@@ -12,7 +12,7 @@ int bfs(int dt){
     int u;
     if(dt==1) u = 2;
     else u = 1;
-    vs[u] = 1;          // Git pull orgin master
+    vs[u] = 1;
     vs[dt] = 1;
     int n = 0;
     queue<int> q;

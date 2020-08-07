@@ -8,19 +8,19 @@ typedef long long ll;
 void Res(){
     int n,m,x,y;
     cin>>n>>m;
-    vector<int> v[n+1];
+    vector<vector<int> > v(n+1);
     For(i,1,m){
         cin>>x>>y;
         v[x].push_back(y);
         v[y].push_back(x);
     }
-    For(i,1,n){
+    for(int i=1;i<=n;i++) {
         cout<<i<<": ";
         sort(v[i].begin(),v[i].end());
         for(int j=0;j<v[i].size();j++)  cout<<v[i][j]<<" ";
         cout<<'\n';
     }
-    // v.clear();
+    For(i,0,n) v[i].clear();
 }
 int main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);

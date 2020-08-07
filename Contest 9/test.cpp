@@ -1,30 +1,59 @@
 #include<bits/stdc++.h>
+
 using namespace std;
-int n , v , a[10001][10001];
-void init(){
-	cin >> n >> v;
-	for(int i = 1 ; i <= n ; i++) for(int j = 1 ; j <= 1 ; j++) a[i][j] = 0;
-	int x , y;
-	for(int i = 1 ; i <= v ; i++){
-		cin >> x >> y;
-		a[x][y] = 1;
-		a[y][x] = 1;
+int chuaxet[10005];
+bool check;
+
+void DFS(vector<int> a[],int u,int x)
+{
+	chuaxet[u]=1;
+	for(int i=0;i<a[u].size();i++)
+	{
+		int t1=a[u][i];
+		if(t1!=x&&chuaxet[t1]==0) DFS(a,t1,u);
+		else if(t1!=x&&chuaxet[t1]==1) check=true;
 	}
+	chuaxet[u]=2;
 }
-void res(){
-	for(int i = 1 ; i <= n ; i++){
-		cout << i << ": ";
-		for(int j = 1 ; j <= n ; j++){
-			if(a[i][j] == 1) cout << j << " ";
+void res(vector<int> a[],int n)
+{
+	check=false;
+	for(int i=1;i<=n;i++)
+	{
+		if(chuaxet[i]==0)
+		{
+			chuaxet[i]=1;
+			DFS(a,i,0);
+			if(check==true)
+			{
+				cout<<"NO";
+				return;
+			}
+		
 		}
-		cout << endl;
+		memset(chuaxet,0,sizeof(chuaxet));
 	}
+	cout<<"YES";
 }
-int main(){
-	int T;
-	cin >> T;
-	while(T--){
-	   init();
-	   res();
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		memset(chuaxet,0,sizeof(chuaxet));
+		int n;
+		cin>>n;
+		vector<int> a[1005];
+		for(int i=1;i<=n-1;i++)
+		{
+			int u,v;
+			cin>>u>>v;
+			a[u].push_back(v);
+			a[v].push_back(u);
+		}
+		for(int i=1;i<=n;i++) sort(a[i].begin(),a[i].end());
+		res(a,n);
+		cout<<endl;
 	}
 }

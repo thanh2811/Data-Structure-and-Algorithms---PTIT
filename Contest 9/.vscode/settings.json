@@ -4,5 +4,6 @@
         "*.tcc": "cpp",
         "iosfwd": "cpp",
         "vector": "cpp"
-    }
+    },
+    "git.ignoreLimitWarning": true
 }
